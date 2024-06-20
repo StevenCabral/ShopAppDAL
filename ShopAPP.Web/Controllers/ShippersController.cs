@@ -7,6 +7,7 @@ using TModel = ShopAPP.DAL.Models.Shippers.ShippersModel;
 using TAddModel = ShopAPP.DAL.Models.Shippers.ShippersAddModel;
 using TUpdateModel = ShopAPP.DAL.Models.Shippers.ShippersUpdateModel;
 using TRemoveModel = ShopAPP.DAL.Models.Shippers.ShippersRemoveModel;
+using ShopAPP.DAL.Daos;
 #endregion
 
 
@@ -96,22 +97,13 @@ namespace ShopAPP.Web.Controllers
         // GET: EmployeesController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+
+            var removelement = new TRemoveModel() { ShipperId = id };
+            _shippersDb.RemoveEntity(removelement);
+
+            return RedirectToAction(nameof(Index));
         }
 
-        // POST: EmployeesController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        
     }
 }

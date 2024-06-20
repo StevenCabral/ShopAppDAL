@@ -90,25 +90,16 @@ namespace ShopAPP.Web.Controllers
 			}
 		}
 
-		// GET: CustomersController/Delete/5
-		public ActionResult Delete(int id)
-		{
-			return View();
-		}
+        // GET: CustomersController/Delete/5
+        public ActionResult Delete(int id)
+        {
 
-		// POST: CustomersController/Delete/5
-		[HttpPost]
-		[ValidateAntiForgeryToken]
-		public ActionResult Delete(int id, IFormCollection collection)
-		{
-			try
-			{
-				return RedirectToAction(nameof(Index));
-			}
-			catch
-			{
-				return View();
-			}
-		}
+            var removelement = new CustomersRemoveModel() { CustId = id };
+            _customersDb.RemoveEntity(removelement);
+
+            return RedirectToAction(nameof(Index));
+        }
+
+      
 	}
 }

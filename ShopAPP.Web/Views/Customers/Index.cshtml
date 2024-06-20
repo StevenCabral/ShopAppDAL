@@ -4,7 +4,7 @@
 	ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Customers</h1>
 
 <p>
 	<a asp-action="Create">Create New</a>
@@ -106,7 +106,7 @@
 				<td>
 					@Html.ActionLink("Edit", "Edit", new { id = item.CustId }) |
 					@Html.ActionLink("Details", "Details", new { id = item.CustId }) |
-					@Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+					@Html.ActionLink("Delete", "Delete", new {  id = item.CustId })
 				</td>
 			</tr>
 		}

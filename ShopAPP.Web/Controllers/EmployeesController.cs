@@ -6,6 +6,9 @@ using TModel = ShopAPP.DAL.Models.Employees.EmployeesModel;
 using TAddModel = ShopAPP.DAL.Models.Employees.EmployeesAddModel;
 using TUpdateModel = ShopAPP.DAL.Models.Employees.EmployeesUpdateModel;
 using TRemoveModel = ShopAPP.DAL.Models.Employees.EmployeesRemoveModel;
+using ShopAPP.DAL.Daos;
+using ShopAPP.DAL.Models.Customers;
+using ShopAPP.DAL.Models.Employees;
 #endregion
 
 namespace ShopAPP.Web.Controllers
@@ -97,25 +100,15 @@ namespace ShopAPP.Web.Controllers
 			}
 		}
 
-		// GET: EmployeesController/Delete/5
-		public ActionResult Delete(int id)
-		{
-			return View();
-		}
+        // GET: EmployeesController/Delete/5
+        public ActionResult Delete(int id)
+        {
 
-		// POST: EmployeesController/Delete/5
-		[HttpPost]
-		[ValidateAntiForgeryToken]
-		public ActionResult Delete(int id, IFormCollection collection)
-		{
-			try
-			{
-				return RedirectToAction(nameof(Index));
-			}
-			catch
-			{
-				return View();
-			}
-		}
+            var removelement = new TRemoveModel() { EmpId = id };
+            _employeesDb.RemoveEntity(removelement);
+
+            return RedirectToAction(nameof(Index));
+        }
+
 	}
 }

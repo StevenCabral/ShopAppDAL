@@ -6,6 +6,7 @@ using TModel = ShopAPP.DAL.Models.Products.ProductsModel;
 using TAddModel = ShopAPP.DAL.Models.Products.ProductsAddModel;
 using TUpdateModel = ShopAPP.DAL.Models.Products.ProductsUpdateModel;
 using TRemoveModel = ShopAPP.DAL.Models.Products.ProductsRemoveModel;
+using ShopAPP.DAL.Daos;
 #endregion
 
 namespace ShopAPP.Web.Controllers
@@ -89,25 +90,15 @@ namespace ShopAPP.Web.Controllers
 			}
 		}
 
-		// GET: EmployeesController/Delete/5
-		public ActionResult Delete(int id)
-		{
-			return View();
-		}
+        // GET: EmployeesController/Delete/5
+        public ActionResult Delete(int id)
+        {
 
-		// POST: EmployeesController/Delete/5
-		[HttpPost]
-		[ValidateAntiForgeryToken]
-		public ActionResult Delete(int id, IFormCollection collection)
-		{
-			try
-			{
-				return RedirectToAction(nameof(Index));
-			}
-			catch
-			{
-				return View();
-			}
-		}
+            var removelement = new TRemoveModel() { ProductId = id };
+            _productsDb.RemoveEntity(removelement);
+
+            return RedirectToAction(nameof(Index));
+        }
+
 	}
 }
