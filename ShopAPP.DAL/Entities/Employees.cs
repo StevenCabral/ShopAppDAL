@@ -1,9 +1,13 @@
 ﻿using ShopAPP.DAL.Core;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ShopAPP.DAL.Entities
 {
     public class Employees : BaseEntity
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int EmpId { get; set; }
         public string LastName { get; set; }
         public string FirstName { get; set; }

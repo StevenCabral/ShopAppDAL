@@ -2,8 +2,8 @@
 
 namespace ShopAPP.DAL.Models.Employees
 {
-    public class EmployeesRemoveModel : BaseDeleteModel
-    {
-        public int EmpId { get; set; }
-    }
+	public class EmployeesRemoveModel : BaseDeleteModel
+	{
+		public int EmpId { get; set; }
+	}
 }

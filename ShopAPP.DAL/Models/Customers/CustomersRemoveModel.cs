@@ -2,8 +2,8 @@
 
 namespace ShopAPP.DAL.Models.Customers
 {
-    public class CustomersRemoveModel : BaseDeleteModel
-    {
-        public int CustId { get; set; }
-    }
+	public class CustomersRemoveModel : BaseDeleteModel
+	{
+		public int CustId { get; set; }
+	}
 }

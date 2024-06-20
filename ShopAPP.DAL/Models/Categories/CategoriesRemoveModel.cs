@@ -2,8 +2,8 @@
 
 namespace ShopAPP.DAL.Models.Categories
 {
-    public class CategoriesRemoveModel : BaseDeleteModel
-    {
-        public int CategoryId { get; set; }
-    }
+	public class CategoriesRemoveModel : BaseDeleteModel
+	{
+		public int CategoryId { get; set; }
+	}
 }

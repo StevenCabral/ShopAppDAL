@@ -2,8 +2,8 @@
 
 namespace ShopAPP.DAL.Models.OrderDetails
 {
-    public class OrderDetailsRemoveModel : BaseDeleteModel
-    {
-        public int OrderId { get; set; }
-    }
+	public class OrderDetailsRemoveModel : BaseDeleteModel
+	{
+		public int OrderId { get; set; }
+	}
 }
